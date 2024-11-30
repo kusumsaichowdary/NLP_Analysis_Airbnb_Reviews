@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="sdkName" value="DM" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="DM" project-jdk-type="Python SDK" />
+  <component name="PyPackaging">
+    <option name="earlyReleasesAsUpgrades" value="true" />
+  </component>
+  <component name="RemoteTargetsManager">
+    <option name="projectDefaultTargetUuid" value="43d29590-a57e-4078-b419-9e4638f8342c" />
+    <targets>
+      <target name="ubuntu@98.83.23.206:22" type="ssh/sftp" uuid="43d29590-a57e-4078-b419-9e4638f8342c">
+        <config>
+          <option name="projectRootOnTarget" value="/home/ubuntu/Project" />
+          <option name="serverName" value="ubuntu@98.83.23.206:22 key" />
+        </config>
+      </target>
+    </targets>
+  </component>
+</project>
