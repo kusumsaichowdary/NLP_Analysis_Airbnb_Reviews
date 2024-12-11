@@ -54,10 +54,26 @@ The following Python libraries are required:
 #### Sample Installation Command:
 pip install pandas numpy nltk langdetect contractions emoji tqdm transformers datasets scikit-learn gensim matplotlib seaborn wordcloud
 
-#### How to run the code:
-- **Make sure the data path is adjusted according to your system.**
-- `python3 Phase1_SentimentalCode.py`
-- **A new CSV would be added into current directory and this CSV has to be used in the next** `.py`.
-- `python3 ABSA_DataProcessing.py`
-- **A new CSV would be added into current directory and this CSV has to be used in the next** `.py`.
-- `python3 FinalSummarization.py`
+# NLTK Data
+
+**Note:** The code uses several NLTK resources to process text. Ensure these resources are downloaded before running the scripts. The following NLTK packages are used:  
+- **punkt**: For tokenization.  
+- **wordnet**: For lemmatization.  
+- **stopwords**: For removing common English stopwords.  
+- **averaged_perceptron_tagger**: For POS tagging (to identify nouns for aspect extraction).
+
+# Scripts and Usage
+
+## 1. Sentiment Analysis Pipeline (`Phase1_SentimentalCode.py`)
+
+**Purpose:**  
+- Load and preprocess Airbnb reviews.  
+- Detect language and filter only English reviews.  
+- Expand contractions, clean text, tokenize, and lemmatize.  
+- Generate initial sentiment labels using a pre-trained DistilBERT sentiment model.  
+- Fine-tune a BERT model for sentiment classification.  
+- Save the processed dataset with sentiment labels.
+
+**Run:**  
+```bash
+python Phase1_SentimentalCode.py
