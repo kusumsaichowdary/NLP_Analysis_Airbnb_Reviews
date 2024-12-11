@@ -77,3 +77,117 @@ pip install pandas numpy nltk langdetect contractions emoji tqdm transformers da
 **Run:**  
 ```bash
 python Phase1_SentimentalCode.py
+
+```
+
+## Output
+- `processed_reviews_SentimentLabels.csv`
+- Console logs showing training and evaluation metrics
+
+---
+
+## 2. Sentiment Visualization (`Sentiment_plots.ipynb`)
+
+### Purpose
+- Load the CSV file: `processed_reviews_SentimentLabels.csv`.
+- Visualize the distribution of sentiments.
+- Create bar charts for sentiment distribution.
+- Generate time-series line charts to analyze yearly sentiment trends.
+- Create word clouds and bigram frequency charts for positive and negative reviews.
+
+### Run
+```bash
+jupyter notebook Sentiment_plots.ipynb
+```
+
+- Open the notebook in a browser and run the cells to produce the plots.
+
+---
+
+## 3. Aspect-Based Sentiment Analysis (`ABSA_DataProcessing.py`)
+
+### Purpose
+- Load the CSV file: `processed_reviews_SentimentLabels.csv`.
+- Tokenize and lemmatize reviews for Word2Vec model training.
+- Train Word2Vec to produce embeddings for the vocabulary.
+- Extract nouns and cluster them using KMeans to identify aspects.
+- Map aspects to each review and create an aspect-level sentiment dataset.
+
+### Run
+```bash
+python ABSA_DataProcessing.py
+```
+
+## Output
+- `AspectbasedSentimentAnalysis.csv` with columns: `listing_id`, `review_posted_date`, `cleaned_review`, `aspects`, and `sentiment_label`.
+
+---
+
+## 4. Aspect-Based Visualization (`ABSA_plots.ipynb`)
+
+### Purpose
+- Load `AspectbasedSentimentAnalysis.csv`.
+- Create visualizations such as:
+  - Heatmaps for sentiment per aspect.
+  - Radar charts for specific listings.
+  - Stacked area charts to show aspect sentiment evolution over time.
+
+### Note
+- Open as a notebook (`.ipynb` format) in Jupyter and run cells to produce the visualizations.
+
+---
+
+## 5. Summarization (`FinalSummarization.py`)
+
+### Purpose
+- Prompt the user for a `listing_id` (e.g., `10452`).
+- Summarize all reviews associated with that listing using a T5 model.
+- Provide a concise narrative capturing:
+  - Host personality
+  - Accommodation quality
+  - Neighborhood vibe
+  - Safety
+  - Transportation options
+
+### Run
+```bash
+python FinalSummarization.py
+```
+
+## Output
+- A final summary displayed in the console.
+
+---
+
+## Interpreting the Results
+
+### Sentiment Analysis Results
+- High accuracy and F1 scores indicate the model’s strong performance in classifying reviews.
+- Positive reviews dominate, suggesting general guest satisfaction.
+
+### Aspect-Based Insights
+- Clustering nouns into aspects reveals what specifically guests value (e.g., location, cleanliness) and what they dislike (e.g., cancellations).
+- The aspect-level sentiment dataset allows you to identify areas needing attention and improvement.
+
+### Visualizations
+- The provided plots (bar charts, heatmaps, line graphs, radar charts, stacked area plots, word clouds) offer a comprehensive view of sentiment trends, key words, aspect distributions, and temporal changes.
+
+### Summarization
+- Automatically generated summaries help users quickly understand the essence of thousands of reviews.
+- Focuses on critical attributes mentioned frequently by guests.
+
+---
+
+## References
+- **Dataset:** [NYC Airbnb Reviews 2021 (Kaggle)](https://www.kaggle.com/datasets)
+- **BERT:** Devlin, J. et al. (2019). *BERT: Pre-training of Deep Bidirectional Transformers*.
+- **T5:** Raffel, C. et al. (2020). *Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer*.
+- **Word2Vec:** Mikolov, T. et al. (2013). *Distributed Representations of Words and Phrases*.
+- **Hugging Face Transformers:** [https://huggingface.co/transformers/](https://huggingface.co/transformers/)
+- **NLTK:** [https://www.nltk.org/](https://www.nltk.org/)
+
+---
+
+## Contact
+For questions or feedback, please open an issue in this repository or contact the project maintainers directly.
+
